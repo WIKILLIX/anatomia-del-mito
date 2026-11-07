@@ -1,0 +1,11 @@
+:root { --fondo: #faf8f4; --texto: #1d1b18; --suave: #6b655c; --enlace: #8a3b12; }
+@media (prefers-color-scheme: dark) {
+  :root { --fondo: #121417; --texto: #ece6da; --suave: #a59d90; --enlace: #e0a46f; }
+}
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 17px/1.6 Georgia, serif; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-weight: 500; letter-spacing: .02em; }
+h2 { font-size: 1.15rem; margin-top: 2em; }
+small, .fecha { color: var(--suave); }
+a { color: var(--enlace); }
+nav { margin-bottom: 24px; }
