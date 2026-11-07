@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volviendo a la app</title>
+<link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+<main>
+  <h1>Volviendo a la app…</h1>
+  <p>Threads necesita una dirección https para regresar; esta página te devuelve a la herramienta en tu computador.</p>
+  <p><small>Si no pasa nada, comprueba que la app esté abierta.</small></p>
+</main>
+<script>
+  // Reenvía solo la respuesta de OAuth a la app local
+  const entrada = new URLSearchParams(location.search);
+  const salida = new URLSearchParams();
+  for (const clave of ["code", "state", "error", "error_reason", "error_description"]) {
+    if (entrada.has(clave)) salida.set(clave, entrada.get(clave).replace(/#_$/, ""));
+  }
+  location.replace("http://localhost:8500/api/threads/callback?" + salida.toString());
+</script>
+</body>
+</html>
